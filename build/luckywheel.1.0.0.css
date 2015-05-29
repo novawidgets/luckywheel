@@ -1,0 +1,92 @@
+/* Version 1.0.0 */
+
+/* Required styles */
+.lucky-wheel{
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    background: #ed4421;
+    -webkit-transition: -webkit-transform,transform 6s ease-out;
+    -moz-transition: transform,-moz-transform 6s ease-out;
+    transition: transform 6s ease-out;
+    background: url(http://p0.qhimg.com/t01d43dc2f99c90c752.png) no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+}
+
+.paused.lucky-wheel {
+    -webkit-animation-play-state: paused !important;
+    -moz-animation-play-state: paused !important;
+    animation-play-state: paused !important;
+}
+
+.rotate.lucky-wheel {
+    -webkit-animation: rotateWheel linear 3s infinite;
+    -moz-animation: rotateWheel linear 3s infinite;
+    animation: rotateWheel linear 3s infinite;
+}
+
+.lucky-wheel canvas {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ffd270;
+    border-radius: 100%;
+    background: #ffd270;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,.25);
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,.25);
+    box-shadow: 0px 0px 8px rgba(0,0,0,.25);
+}
+
+@-webkit-keyframes rotateWheel {
+    0% { 
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% { 
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom styles */
+.container {
+    position: relative;
+    width: 300px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.container button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%)  rotate(90deg);
+    -moz-transform: translate(-50%, -50%)  rotate(90deg);
+    transform: translate(-50%, -50%)  rotate(90deg);
+    z-index: 1;
+    background: linear-gradient(to bottom, #ffdc71, #ffac31);
+    outline: none;
+    width: 88px;
+    height: 88px;
+    border-radius: 100px;
+    border: 10px solid #ed4421;
+    font-size: 22px;
+    color: #ed4421;
+}
+.container button:before {
+    content: ' ';
+    position: absolute;
+    left: 50%;
+    top: -28px;
+    margin-left: -10px;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 13px solid #ed4421;
+    border-right: 10px solid transparent;
+}

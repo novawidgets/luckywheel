@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title></title>
+        <link rel="stylesheet" href="../src/luckywheel.css" />
+        <link rel="stylesheet" href="http://s4.qhimg.com/static/c8243de50db4649c/mocha.css" />
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="lucky-wheel"></div>
+            <button class="switch-wheel">开始<br>抽奖</button>
+        </div>
+        <a href="javascript:;" class="finish">结束抽奖</a>
+        <script type="text/javascript" src="http://s0.qhimg.com/static/24fee17ef5eeefee/zepto_touch_fx.112.js"></script>
+        <script type="text/javascript" src="http://s0.qhimg.com/static/05e5e157e7b8d30d/mocha.js"></script>
+        <script type="text/javascript" src="http://s4.qhimg.com/static/3277fa15cc2352ec/chai.js"></script>
+        <script type="text/javascript" src="http://s0.qhimg.com/static/a544ceb156ebf3bf/sinon.js"></script>
+
+        <script src="../libs/widget.1.0.2.js"></script>
+        <script src="../src/luckywheel.js"></script>
+        <script type="text/javascript">
+            var prizeList = ['300金币', '500M空间', '50金币', '360随身wifi', '复仇2充电宝', '《复仇2》代金券', '100金币', '360M空间', '10金币', '《复仇2》电影票', '代驾金币券', '10元聚美代金券'];
+            var btn = $('.switch-wheel');
+            var luckyWheel = new Luckywheel({
+                element: '.lucky-wheel',
+                prizeList: prizeList,
+                wheelColor: ['#ffb931', '#ffc23c'],
+                draw: {
+                    fontColor: '#333',
+                    offsetCenter: btn.width()
+                }
+                //draw: false
+            });
+
+            btn.on('click', function() {
+                luckyWheel.start();
+            });
+
+            $('.finish').on('click', function() {
+                var index = parseInt(Math.random()*8);
+                luckyWheel.end(index, function() {
+                    alert('恭喜抽中了：' + prizeList[index]);
+                });
+            });
+
+        </script>
+    </body>
+</html>
